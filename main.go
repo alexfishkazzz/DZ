@@ -54,18 +54,16 @@ func main() {
 				errorCount++
 				handleError(&errorCount)
 				time.Sleep(1 * time.Second)
-				break // Выходим из for, чтобы не продолжать с неверными данными
+				break
 			}
 			values[i] = val
 		}
-		if errorCount > 0 { // Если была ошибка в парсинге, уже обработано
+		if errorCount > 0 {
 			continue
 		}
 
-		// Сброс счётчика ошибок при успешном запросе
 		errorCount = 0
 
-		// Проверки
 		loadAvg := values[0]
 		if loadAvg > 30 {
 			fmt.Printf("Load Average is too high: %.0f\n", loadAvg)
