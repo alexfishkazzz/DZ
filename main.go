@@ -83,7 +83,7 @@ func fetchStats() ([]int64, error) {
 func checkMetrics(stats []int64) {
 	// 0: Load Average
 	load := stats[0]
-	if load > loadThreshold {
+	if load >= loadThreshold {
 		fmt.Printf("Load Average is too high: %d\n", load)
 	}
 
